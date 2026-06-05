@@ -1,148 +1,178 @@
 # ByteBridge
 
-Tokenizer-free byte input adapters for frozen causal language models.
+**ByteBridge** is a diagnostic study of byte-side input adapters for frozen
+tokenizer-based language models.
 
-This repository is a reproducible research prototype for testing whether small
-byte-side adapters can provide input context to frozen tokenizer-based causal
-language models. The project starts with an `inputs_embeds` feasibility gate and
-then builds a diagnostic ladder: tokenizer baselines, noisy and tokenizer-stress
-benchmarks, embedding distillation, token reconstruction, soft-prefix injection,
-KV-prefix injection, and selected cross-model replications.
+The question is simple:
 
-Large adapter checkpoints are intentionally not stored in this repository.
-Configuration files, scripts, fixed data splits, reports, and compact metrics are
-included so that experiments can be reproduced or audited.
+> Can a frozen language model read raw UTF-8 byte input if we train only a small
+> external adapter?
 
-## Feasibility Gate
+The answer from this project is mixed. Byte adapters can help on some
+tokenizer-unfriendly inputs, especially typo noise, but they do not reliably
+replace native tokenization. The strongest result is model-dependent: Qwen2.5
+remains below its tokenizer baseline outside typo-noise buckets, while
+TinyLlama all-layer KV-prefix injection is stronger on clean, typo, and Unicode
+inputs but still fails on multilingual and tokenizer-stress buckets.
 
-```bash
-cd bytebridge
-python3 scripts/feasibility_gate.py --config configs/feasibility_qwen05.yaml
+This repository contains the code, fixed benchmark splits, compact metrics, and
+paper artifacts behind that study. Large adapter checkpoints are intentionally
+excluded.
+
+## Main Findings
+
+- **Input-layer byte replacement is not enough.** Fixed byte patches through
+  `inputs_embeds` train successfully, but clean-text loss remains far worse than
+  native tokenized input.
+- **Embedding alignment is not enough.** Distilling byte latents toward token
+  embeddings reduces the auxiliary loss but does not improve downstream LM
+  evaluation.
+- **Token reconstruction helps, but does not solve the problem.** Byte spans can
+  recover tokenizer token identity, especially with oracle token boundaries, but
+  Qwen2.5 still does not use the resulting input-layer latents like native
+  token embeddings.
+- **Deeper injection helps.** Soft prefixes and KV-prefixes improve several
+  stress buckets, but Qwen2.5 still misses the clean-retention threshold.
+- **The result is model- and bucket-dependent.** TinyLlama benefits much more
+  from all-layer KV-prefix injection than Qwen2.5, while still failing badly on
+  multilingual and tokenizer-stress inputs.
+
+## Repository Layout
+
+```text
+bytebridge/              Core adapter, data, mapping, and metric code
+scripts/                 Training, evaluation, comparison, and plotting scripts
+configs/                 YAML configs for all reported runs
+data/phase2/splits/      Fixed train/validation/test manifests
+experiments/             Compact metrics, summaries, and result tables
+reports/                 Phase-by-phase technical reports
+paper/pricai2026/        PRICAI paper source and figures
+paper/tokshop2026/       Earlier short workshop version
 ```
 
-Outputs are written to `experiments/feasibility/qwen05/`:
+The `experiments/` directory in this repository contains small JSON/CSV/JSONL
+artifacts needed for auditing results. It does **not** include trained adapter
+checkpoints such as `adapter.pt`, `best_adapter.pt`, or `final_adapter.pt`.
 
-- `metrics.csv`: per-step loss, gradient checks, memory, elapsed time
-- `env.json`: Python/PyTorch/CUDA/GPU/model/config metadata
-- `summary.json`: pass/fail-relevant summary values
-- `adapter.pt`: adapter checkpoint
-- `loss_curve.png`: training loss plot
+## Benchmark
 
-Current result with `Qwen/Qwen2.5-0.5B`: loss decreased from 12.6508 to 4.3031
-over 120 steps, adapter gradients were nonzero, LLM gradients remained zero, and
-the first-four-tensor LLM checksum delta was 0.0.
+The fixed benchmark uses paired conditional evaluation:
 
-The environment package list used for the first run is saved at
-`experiments/feasibility/requirements_user.txt`. This machine did not have
-`python3-venv`, `pip`, `conda`, or sudo access initially, so user-level `pip` was
-bootstrapped with `get-pip.py --user --break-system-packages`.
+- `input_text` is the prompt.
+- `target_text` is the supervised suffix.
+- Noisy examples use noisy input and clean target text.
+- Tokenizer baselines and ByteBridge adapters are scored on the same target
+  tokens.
 
-## Scope
+Buckets include:
 
-The repository validates:
+- clean English
+- light/medium/heavy typo noise
+- Unicode stress
+- multilingual short text
+- code snippets
+- tokenizer-stress strings such as URLs, paths, IDs, hex/base64-like strings,
+  and logs
 
-- `inputs_embeds` forward/backward on a frozen causal LM
-- no trainable LLM parameters
-- nonzero adapter gradients
-- decreasing adapter training loss
-- recorded GPU memory, batch size, latent length, and runtime
-- fixed train/validation/test splits for clean, noisy, Unicode, multilingual,
-  code, and tokenizer-stress buckets
-- per-bucket comparison against native tokenizer baselines
+The fixed manifests live in `data/phase2/splits/`.
 
-## Phase 2 Pilot
+## Key Results
 
-Phase 2 uses paired conditional evaluation: `input_text` is the prompt and
-`target_text` is the supervised suffix. Noisy examples use noisy input and clean
-target text. Tokenizer baseline and ByteBridge are scored on the same target
-tokens.
+Representative Qwen2.5-0.5B results:
 
-```bash
-python3 scripts/phase2_build_data.py --config configs/phase2_data.yaml
-python3 scripts/phase2_eval_tokenizer_baseline.py --config configs/phase2_tokenizer_baseline.yaml
-python3 scripts/phase2_train_bytebridge.py --config configs/phase2_bb_noise_l32_seed1_2k.yaml
-```
+| Run | Clean retention | Wins vs tokenizer |
+|---|---:|---|
+| Fixed input byte adapter | 2.19x | typo light / medium / heavy |
+| Distill then LM | 2.22x | typo light / medium / heavy |
+| Token reconstruction then LM | 1.84x | typo light / medium / heavy |
+| Soft prefix p64 | 1.76x | typo light / medium / heavy |
+| KV prefix p32 all layers | 1.61x | typo light / medium / heavy |
 
-Current Phase 2 pilot result: partial/negative. ByteBridge wins on typo-noise
-buckets but fails clean retention and remains worse on Unicode, multilingual,
-code, and tokenizer-stress buckets. See
-`reports/phase2_research_report.md`.
+Selected cross-model result:
 
-## Phase 3 Projection Alignment
+| Model | Best selected interface | Clean retention | Main outcome |
+|---|---|---:|---|
+| Qwen2.5-1.5B | KV prefix p32 all layers | 2.52x | still negative |
+| TinyLlama-1.1B-Chat | KV prefix p32 all layers | 0.63x | wins clean, typo, Unicode; loses multilingual and tokenizer-stress |
 
-Phase 3 tested embedding distillation before LM training:
+For full per-bucket numbers, see:
 
-```bash
-python3 scripts/phase3_train_distill.py --config configs/phase3_distill_l32.yaml
-python3 scripts/phase2_train_bytebridge.py --config configs/phase3_bb_distill_then_lm_l32.yaml
-python3 scripts/phase3_eval_compare.py --phase3-runs experiments/phase3/bb_distill_then_lm_l32/summary.json experiments/phase3/bb_distill_then_lm_l64/summary.json
-```
+- `reports/phase2_research_report.md`
+- `reports/phase3_projection_alignment_report.md`
+- `reports/phase4_boundary_reconstruction_report.md`
+- `reports/phase5_prefix_kv_injection_report.md`
+- `reports/phase6_kv_prefix_report.md`
+- `reports/pricai_enhancement_notes.md`
+- `experiments/pricai/tables/`
 
-Current Phase 3 result: negative. Distillation loss dropped strongly, but clean
-retention did not improve versus the Phase 2 best run. See
-`reports/phase3_projection_alignment_report.md`.
+## Reproducing the Pipeline
 
-## Phase 4 Boundary Reconstruction
+Install the usual PyTorch/Hugging Face stack for your GPU environment, then run
+commands from the repository root.
 
-Phase 4 tests token-byte mapping, boundary-aware spans, and token reconstruction
-pretraining:
+Build the fixed data splits:
 
 ```bash
-python3 scripts/phase4_mapping_stats.py --config configs/phase4_mapping_stats.yaml
-python3 scripts/phase4_train_token_reconstruction.py --config configs/phase4_recon_oracle_boundary_l32.yaml
-python3 scripts/phase4_train_after_reconstruction.py --config configs/phase4_bb_recon_oracle_boundary_l32_then_lm.yaml
-python3 scripts/phase4_compare.py --runs experiments/phase2/bb_noise_l32_seed1_2k/summary.json experiments/phase3/bb_distill_then_lm_l32/summary.json experiments/phase4/bb_recon_fixed_l32_then_lm/summary.json experiments/phase4/bb_recon_oracle_boundary_l32_then_lm/summary.json experiments/phase4/bb_recon_heuristic_boundary_l32_then_lm/summary.json
+python scripts/phase2_build_data.py --config configs/phase2_data.yaml
 ```
 
-Current Phase 4 result: diagnostic partial. Token reconstruction works,
-especially with oracle token boundaries, and fixed reconstruction improves clean
-retention from `2.19x` to `1.84x`. It still does not reach the `<=1.5x` hopeful
-threshold or beat tokenizer baseline outside typo buckets. See
-`reports/phase4_boundary_reconstruction_report.md`.
-
-## Phase 5 Soft Prefix Injection
-
-Phase 5A tests byte-derived soft prefix embeddings:
+Evaluate the native tokenizer baseline:
 
 ```bash
-python3 scripts/phase5_train_prefix.py --config configs/phase5_prefix_p16.yaml
-python3 scripts/phase5_train_prefix.py --config configs/phase5_prefix_p32.yaml
-python3 scripts/phase5_train_prefix.py --config configs/phase5_prefix_p64.yaml
-python3 scripts/phase5_compare.py --runs experiments/phase2/bb_noise_l32_seed1_2k/summary.json experiments/phase3/bb_distill_then_lm_l32/summary.json experiments/phase4/bb_recon_fixed_l32_then_lm/summary.json experiments/phase5/prefix_fixed_p16/summary.json experiments/phase5/prefix_fixed_p32/summary.json experiments/phase5/prefix_fixed_p64/summary.json
+python scripts/phase2_eval_tokenizer_baseline.py \
+  --config configs/phase2_tokenizer_baseline.yaml
 ```
 
-Current Phase 5A result: diagnostic partial. p64 improves code, Unicode, and
-tokenizer-stress substantially versus prior ByteBridge variants, but best clean
-retention is still `1.76x`, above the `<=1.5x` hopeful threshold. See
-`reports/phase5_prefix_kv_injection_report.md`.
-
-## Phase 6 KV-Prefix Injection
-
-Phase 6 tests byte-derived `DynamicCache` KV-prefix injection for frozen Qwen:
+Run a representative byte adapter experiment:
 
 ```bash
-python3 scripts/phase6_probe_qwen_kv_cache.py
-python3 scripts/phase6_train_kv_prefix.py --config configs/phase6_kv_prefix_p16_l4.yaml
-python3 scripts/phase6_train_kv_prefix.py --config configs/phase6_kv_prefix_p32_l4.yaml
-python3 scripts/phase6_train_kv_prefix.py --config configs/phase6_kv_prefix_p32_lall.yaml
-python3 scripts/phase6_compare.py --runs experiments/phase2/bb_noise_l32_seed1_2k/summary.json experiments/phase4/bb_recon_fixed_l32_then_lm/summary.json experiments/phase5/prefix_fixed_p64/summary.json experiments/phase6/kv_prefix_p16_l4/summary.json experiments/phase6/kv_prefix_p32_l4/summary.json experiments/phase6/kv_prefix_p32_lall/summary.json
+python scripts/phase2_train_bytebridge.py \
+  --config configs/phase2_bb_noise_l32_seed1_2k.yaml
 ```
 
-Current Phase 6 result: diagnostic partial / negative. Qwen `DynamicCache`
-manual KV-prefix injection works, and all-layer KV prefix improves clean
-retention from Phase 5 p64 `1.76x` to `1.61x`. It still misses the `<=1.5x`
-hopeful threshold and does not beat the tokenizer baseline outside typo-noise
-buckets. See `reports/phase6_kv_prefix_report.md`.
+Run the later KV-prefix diagnostic:
 
-## PRICAI Extension
+```bash
+python scripts/phase6_probe_qwen_kv_cache.py
+python scripts/phase6_train_kv_prefix.py \
+  --config configs/phase6_kv_prefix_p32_lall.yaml
+```
 
-The PRICAI extension adds selected replications on `Qwen/Qwen2.5-1.5B` and
-`TinyLlama/TinyLlama-1.1B-Chat-v1.0`, tokenizer fragmentation analysis,
-training-curve comparisons, and multilingual failure cases. The main finding is
-mixed: Qwen2.5 variants remain below the native tokenizer baseline outside
-typo-noise buckets, while TinyLlama all-layer KV-prefix injection is stronger on
-clean, typo, and Unicode buckets but still fails on multilingual and
-tokenizer-stress inputs.
+Run the PRICAI cross-model comparison scripts:
 
-The paper source is in `paper/pricai2026/`; compact PRICAI result tables are in
-`experiments/pricai/tables/`.
+```bash
+python scripts/pricai_compare_tokenizer_fertility.py
+python scripts/pricai_compare_training_curves.py
+python scripts/pricai_cross_model_diagnosis.py
+```
+
+Many scripts expect Hugging Face model access for:
+
+- `Qwen/Qwen2.5-0.5B`
+- `Qwen/Qwen2.5-1.5B`
+- `TinyLlama/TinyLlama-1.1B-Chat-v1.0`
+
+## Paper
+
+The current PRICAI paper source is in `paper/pricai2026/`.
+
+Important note: the paper in this private repository is an anonymous submission
+artifact. Do not make the repository public during double-anonymous review.
+
+## What Is Not Included
+
+To keep the repository lightweight and review-safe, the following are excluded:
+
+- virtual environments
+- downloaded model weights
+- adapter checkpoints
+- large binary archives
+- LaTeX build intermediates
+
+The compact metrics in `experiments/` are enough to audit the reported tables and
+figures. Checkpoints can be regenerated from the configs and scripts.
+
+## Citation
+
+No public citation is provided while the paper is under anonymous review.
+
