@@ -1,0 +1,76 @@
+{
+  "splits": {
+    "train": {
+      "count": 5168,
+      "bucket_counts": {
+        "clean_english": 2400,
+        "typo_noise_light": 800,
+        "typo_noise_medium": 800,
+        "typo_noise_heavy": 800,
+        "unicode_stress": 128,
+        "code": 120,
+        "tokenizer_stress": 120
+      },
+      "mean_byte_len": 121.90092879256966,
+      "mean_token_len": 34.117453560371516,
+      "mean_target_token_len": 26.069272445820435,
+      "max_byte_len": 178,
+      "max_token_len": 64,
+      "max_target_token_len": 40
+    },
+    "validation": {
+      "count": 1188,
+      "bucket_counts": {
+        "clean_english": 300,
+        "typo_noise_light": 120,
+        "typo_noise_medium": 120,
+        "typo_noise_heavy": 120,
+        "unicode_stress": 88,
+        "multilingual_zh": 40,
+        "multilingual_ja": 40,
+        "multilingual_ko": 40,
+        "multilingual_ar": 40,
+        "multilingual_hi": 40,
+        "multilingual_ru": 40,
+        "multilingual_latin": 40,
+        "code": 80,
+        "tokenizer_stress": 80
+      },
+      "mean_byte_len": 99.47643097643098,
+      "mean_token_len": 30.857744107744107,
+      "mean_target_token_len": 25.675925925925927,
+      "max_byte_len": 174,
+      "max_token_len": 64,
+      "max_target_token_len": 49
+    },
+    "test": {
+      "count": 2028,
+      "bucket_counts": {
+        "clean_english": 500,
+        "typo_noise_light": 200,
+        "typo_noise_medium": 200,
+        "typo_noise_heavy": 200,
+        "unicode_stress": 128,
+        "multilingual_zh": 80,
+        "multilingual_ja": 80,
+        "multilingual_ko": 80,
+        "multilingual_ar": 80,
+        "multilingual_hi": 80,
+        "multilingual_ru": 80,
+        "multilingual_latin": 80,
+        "code": 120,
+        "tokenizer_stress": 120
+      },
+      "mean_byte_len": 100.26725838264299,
+      "mean_token_len": 30.907297830374752,
+      "mean_target_token_len": 25.812130177514792,
+      "max_byte_len": 176,
+      "max_token_len": 64,
+      "max_target_token_len": 49
+    }
+  },
+  "leakage_train_test": {
+    "overlap_count": 0,
+    "overlap_examples": []
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "actual_model_name": "Qwen/Qwen2.5-0.5B",
+  "initial_loss": 12.650771141052246,
+  "final_loss": 4.303062915802002,
+  "loss_delta": 8.347708225250244,
+  "adapter_grad_seen": true,
+  "llm_grad_seen": false,
+  "llm_checksum_delta_first4_tensors": 0.0
+}

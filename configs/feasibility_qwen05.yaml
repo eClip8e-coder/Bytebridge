@@ -1,0 +1,16 @@
+seed: 1234
+model_name: Qwen/Qwen2.5-0.5B
+fallback_model_name: sshleifer/tiny-gpt2
+output_dir: experiments/feasibility/qwen05
+max_bytes: 128
+patch_size: 4
+byte_embed_dim: 128
+adapter_hidden_dim: 256
+adapter_depth: 2
+dropout: 0.05
+batch_size: 4
+steps: 120
+learning_rate: 0.0005
+weight_decay: 0.01
+log_every: 10
+save_checkpoint: true

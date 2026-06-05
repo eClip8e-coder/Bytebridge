@@ -1,0 +1,142 @@
+{
+  "clean_english": {
+    "samples": 500,
+    "tokens": 13620,
+    "unmapped": 0,
+    "token_bytes": 63552,
+    "heuristic_spans": 16000,
+    "unmapped_rate": 0.0,
+    "avg_token_bytes": 4.666079295154185,
+    "avg_heuristic_spans": 32.0
+  },
+  "code": {
+    "samples": 120,
+    "tokens": 2910,
+    "unmapped": 0,
+    "token_bytes": 6660,
+    "heuristic_spans": 3480,
+    "unmapped_rate": 0.0,
+    "avg_token_bytes": 2.288659793814433,
+    "avg_heuristic_spans": 29.0
+  },
+  "multilingual_ar": {
+    "samples": 80,
+    "tokens": 1867,
+    "unmapped": 0,
+    "token_bytes": 6612,
+    "heuristic_spans": 1841,
+    "unmapped_rate": 0.0,
+    "avg_token_bytes": 3.5415104445634706,
+    "avg_heuristic_spans": 23.0125
+  },
+  "multilingual_hi": {
+    "samples": 80,
+    "tokens": 3447,
+    "unmapped": 0,
+    "token_bytes": 11056,
+    "heuristic_spans": 2377,
+    "unmapped_rate": 0.0,
+    "avg_token_bytes": 3.2074267478967218,
+    "avg_heuristic_spans": 29.7125
+  },
+  "multilingual_ja": {
+    "samples": 80,
+    "tokens": 1708,
+    "unmapped": 0,
+    "token_bytes": 6007,
+    "heuristic_spans": 1523,
+    "unmapped_rate": 0.0,
+    "avg_token_bytes": 3.5169789227166275,
+    "avg_heuristic_spans": 19.0375
+  },
+  "multilingual_ko": {
+    "samples": 80,
+    "tokens": 1574,
+    "unmapped": 0,
+    "token_bytes": 5046,
+    "heuristic_spans": 1548,
+    "unmapped_rate": 0.0,
+    "avg_token_bytes": 3.2058449809402796,
+    "avg_heuristic_spans": 19.35
+  },
+  "multilingual_latin": {
+    "samples": 80,
+    "tokens": 1597,
+    "unmapped": 0,
+    "token_bytes": 4402,
+    "heuristic_spans": 1704,
+    "unmapped_rate": 0.0,
+    "avg_token_bytes": 2.7564182842830305,
+    "avg_heuristic_spans": 21.3
+  },
+  "multilingual_ru": {
+    "samples": 80,
+    "tokens": 1865,
+    "unmapped": 0,
+    "token_bytes": 7840,
+    "heuristic_spans": 1920,
+    "unmapped_rate": 0.0,
+    "avg_token_bytes": 4.2037533512064345,
+    "avg_heuristic_spans": 24.0
+  },
+  "multilingual_zh": {
+    "samples": 80,
+    "tokens": 1467,
+    "unmapped": 0,
+    "token_bytes": 4720,
+    "heuristic_spans": 1146,
+    "unmapped_rate": 0.0,
+    "avg_token_bytes": 3.2174505794137698,
+    "avg_heuristic_spans": 14.325
+  },
+  "tokenizer_stress": {
+    "samples": 120,
+    "tokens": 2904,
+    "unmapped": 0,
+    "token_bytes": 5232,
+    "heuristic_spans": 2316,
+    "unmapped_rate": 0.0,
+    "avg_token_bytes": 1.8016528925619835,
+    "avg_heuristic_spans": 19.3
+  },
+  "typo_noise_heavy": {
+    "samples": 200,
+    "tokens": 10218,
+    "unmapped": 0,
+    "token_bytes": 26650,
+    "heuristic_spans": 6396,
+    "unmapped_rate": 0.0,
+    "avg_token_bytes": 2.608142493638677,
+    "avg_heuristic_spans": 31.98
+  },
+  "typo_noise_light": {
+    "samples": 200,
+    "tokens": 7894,
+    "unmapped": 0,
+    "token_bytes": 25922,
+    "heuristic_spans": 6400,
+    "unmapped_rate": 0.0,
+    "avg_token_bytes": 3.2837598175829745,
+    "avg_heuristic_spans": 32.0
+  },
+  "typo_noise_medium": {
+    "samples": 200,
+    "tokens": 8764,
+    "unmapped": 0,
+    "token_bytes": 26224,
+    "heuristic_spans": 6400,
+    "unmapped_rate": 0.0,
+    "avg_token_bytes": 2.9922409858512093,
+    "avg_heuristic_spans": 32.0
+  },
+  "unicode_stress": {
+    "samples": 128,
+    "tokens": 3009,
+    "unmapped": 0,
+    "token_bytes": 8729,
+    "heuristic_spans": 3170,
+    "unmapped_rate": 0.0,
+    "avg_token_bytes": 2.9009637753406445,
+    "avg_heuristic_spans": 24.765625
+  }
+}

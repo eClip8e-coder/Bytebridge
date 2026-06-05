@@ -1,0 +1,9 @@
+model_name: Qwen/Qwen2.5-0.5B
+manifest_path: data/phase2/splits/test.jsonl
+output_dir: experiments/phase4/mapping_stats
+prompt_suffix: "\n"
+max_prompt_bytes: 128
+max_spans: 32
+heuristic_max_span_bytes: 8
+num_examples: 24
+max_example_tokens: 24

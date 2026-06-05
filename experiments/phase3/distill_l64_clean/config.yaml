@@ -1,0 +1,26 @@
+run_name: distill_l64_clean
+seed: 11
+model_name: Qwen/Qwen2.5-0.5B
+train_manifest_path: data/phase2/splits/train.jsonl
+output_dir: experiments/phase3/distill_l64_clean
+
+train_buckets:
+  - clean_english
+
+max_prompt_bytes: 128
+max_token_length: 64
+prompt_suffix: "\n"
+patch_size: 2
+byte_embed_dim: 128
+adapter_hidden_dim: 256
+adapter_depth: 2
+dropout: 0.05
+
+batch_size: 16
+steps: 1500
+learning_rate: 0.001
+weight_decay: 0.01
+span_mse_weight: 1.0
+span_cosine_weight: 0.1
+pooled_weight: 0.5
+log_every: 100

@@ -1,0 +1,9 @@
+model,predictor,loss,pearson,spearman
+qwen05,input_tokens,qwen_tokenizer_loss,0.678369204147636,0.2156785351485953
+qwen05,tokens_per_byte,qwen_tokenizer_loss,0.24089208021787303,0.338634826841746
+qwen05,bytes_per_token,qwen_tokenizer_loss,-0.326728134540101,-0.338634826841746
+qwen05,chars_per_token,qwen_tokenizer_loss,-0.11342178105859863,-0.11520408214746934
+tinyllama,input_tokens,tinyllama_tokenizer_loss,0.4721387540013944,0.08662273628839333
+tinyllama,tokens_per_byte,tinyllama_tokenizer_loss,-0.07831488820353412,-0.29305959822990807
+tinyllama,bytes_per_token,tinyllama_tokenizer_loss,-0.05470993015386538,0.29305959822990807
+tinyllama,chars_per_token,tinyllama_tokenizer_loss,0.08417252189208245,0.403720370511487

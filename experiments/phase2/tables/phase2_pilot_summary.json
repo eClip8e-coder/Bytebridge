@@ -1,0 +1,38 @@
+[
+  {
+    "run": "bb_clean_l32_seed1",
+    "clean_retention": 2.5973917414864376,
+    "num_bucket_wins": 3,
+    "num_nonclean_bucket_wins": 3,
+    "winning_buckets": [
+      "typo_noise_heavy",
+      "typo_noise_light",
+      "typo_noise_medium"
+    ],
+    "phase2_clean_retention_pass_1p2": false
+  },
+  {
+    "run": "bb_noise_l32_seed1",
+    "clean_retention": 2.849722097712075,
+    "num_bucket_wins": 3,
+    "num_nonclean_bucket_wins": 3,
+    "winning_buckets": [
+      "typo_noise_heavy",
+      "typo_noise_light",
+      "typo_noise_medium"
+    ],
+    "phase2_clean_retention_pass_1p2": false
+  },
+  {
+    "run": "bb_noise_l32_seed1_2k",
+    "clean_retention": 2.191568091689165,
+    "num_bucket_wins": 3,
+    "num_nonclean_bucket_wins": 3,
+    "winning_buckets": [
+      "typo_noise_heavy",
+      "typo_noise_light",
+      "typo_noise_medium"
+    ],
+    "phase2_clean_retention_pass_1p2": false
+  }
+]

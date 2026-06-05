@@ -1,0 +1,162 @@
+{
+  "model_name": "Qwen/Qwen2.5-0.5B",
+  "config": {
+    "hidden_size": 896,
+    "num_hidden_layers": 24,
+    "num_attention_heads": 14,
+    "num_key_value_heads": 2,
+    "head_dim": 64
+  },
+  "normal_cache": {
+    "type": "DynamicCache",
+    "num_layers": 24,
+    "layers": [
+      {
+        "layer": 0,
+        "type": "DynamicLayer",
+        "keys": [
+          1,
+          2,
+          6,
+          64
+        ],
+        "values": [
+          1,
+          2,
+          6,
+          64
+        ]
+      },
+      {
+        "layer": 1,
+        "type": "DynamicLayer",
+        "keys": [
+          1,
+          2,
+          6,
+          64
+        ],
+        "values": [
+          1,
+          2,
+          6,
+          64
+        ]
+      },
+      {
+        "layer": 2,
+        "type": "DynamicLayer",
+        "keys": [
+          1,
+          2,
+          6,
+          64
+        ],
+        "values": [
+          1,
+          2,
+          6,
+          64
+        ]
+      },
+      {
+        "layer": 3,
+        "type": "DynamicLayer",
+        "keys": [
+          1,
+          2,
+          6,
+          64
+        ],
+        "values": [
+          1,
+          2,
+          6,
+          64
+        ]
+      }
+    ]
+  },
+  "manual_dynamic_cache_forward": {
+    "ok": true,
+    "logits_shape": [
+      1,
+      2,
+      151936
+    ],
+    "output_cache": {
+      "type": "DynamicCache",
+      "num_layers": 24,
+      "layers": [
+        {
+          "layer": 0,
+          "type": "DynamicLayer",
+          "keys": [
+            1,
+            2,
+            4,
+            64
+          ],
+          "values": [
+            1,
+            2,
+            4,
+            64
+          ]
+        },
+        {
+          "layer": 1,
+          "type": "DynamicLayer",
+          "keys": [
+            1,
+            2,
+            4,
+            64
+          ],
+          "values": [
+            1,
+            2,
+            4,
+            64
+          ]
+        },
+        {
+          "layer": 2,
+          "type": "DynamicLayer",
+          "keys": [
+            1,
+            2,
+            4,
+            64
+          ],
+          "values": [
+            1,
+            2,
+            4,
+            64
+          ]
+        },
+        {
+          "layer": 3,
+          "type": "DynamicLayer",
+          "keys": [
+            1,
+            2,
+            4,
+            64
+          ],
+          "values": [
+            1,
+            2,
+            4,
+            64
+          ]
+        }
+      ]
+    }
+  },
+  "manual_legacy_tuple_forward": {
+    "ok": false,
+    "error": "AttributeError: 'tuple' object has no attribute 'get_seq_length'"
+  }
+}

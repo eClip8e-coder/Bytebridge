@@ -1,0 +1,6 @@
+{
+  "plots": [
+    "experiments/pricai/plots/bucket_loss_and_fragmentation.png",
+    "experiments/pricai/plots/preprocessing_typo_controls.png"
+  ]
+}

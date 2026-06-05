@@ -1,0 +1,18 @@
+{
+  "run_name": "distill_l32_clean",
+  "model_name": "Qwen/Qwen2.5-0.5B",
+  "steps": 1500,
+  "train_rows": 2400,
+  "adapter_parameters": 922240,
+  "llm_trainable_params": 0,
+  "llm_checksum_delta_first8_tensors": 0.0,
+  "initial_loss": 0.9582958817481995,
+  "final_loss": 0.06366820633411407,
+  "loss_delta": 0.8946276754140854,
+  "final_fixed_span_mse": 0.004261963535100222,
+  "final_fixed_span_cosine": 0.4801477789878845,
+  "final_pooled_loss": 0.02278292179107666,
+  "gpu_memory_allocated_peak_mib": 1551.66162109375,
+  "gpu_memory_reserved_peak_mib": 2060.0,
+  "total_elapsed_sec": 22.595232224994106
+}

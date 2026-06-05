@@ -1,0 +1,34 @@
+{
+  "baseline_clean_loss": 0.3274165761470795,
+  "runs": [
+    {
+      "run": "qwen15_prefix_p64_2k",
+      "clean_loss": 2.0351174801588057,
+      "clean_retention": 6.215682492643886,
+      "winning_buckets": [],
+      "llm_trainable_params": 0,
+      "checksum_delta": 0.0
+    },
+    {
+      "run": "qwen15_prefix_p64_8k",
+      "clean_loss": 0.8926877484023571,
+      "clean_retention": 2.726458626216136,
+      "winning_buckets": [
+        "typo_noise_heavy"
+      ],
+      "llm_trainable_params": 0,
+      "checksum_delta": 0.0
+    },
+    {
+      "run": "qwen15_kv_p32_all",
+      "clean_loss": 0.824484839297831,
+      "clean_retention": 2.5181524069430816,
+      "winning_buckets": [
+        "typo_noise_medium",
+        "typo_noise_heavy"
+      ],
+      "llm_trainable_params": 0,
+      "checksum_delta": 0.0
+    }
+  ]
+}

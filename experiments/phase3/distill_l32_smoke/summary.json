@@ -1,0 +1,18 @@
+{
+  "run_name": "distill_l32_smoke",
+  "model_name": "Qwen/Qwen2.5-0.5B",
+  "steps": 3,
+  "train_rows": 2400,
+  "adapter_parameters": 922240,
+  "llm_trainable_params": 0,
+  "llm_checksum_delta_first8_tensors": 0.0,
+  "initial_loss": 0.9600504636764526,
+  "final_loss": 0.6850996017456055,
+  "loss_delta": 0.27495086193084717,
+  "final_fixed_span_mse": 0.25374671816825867,
+  "final_fixed_span_cosine": 0.9213306307792664,
+  "final_pooled_loss": 0.6784396767616272,
+  "gpu_memory_allocated_peak_mib": 1549.10205078125,
+  "gpu_memory_reserved_peak_mib": 2052.0,
+  "total_elapsed_sec": 0.36246796399063896
+}

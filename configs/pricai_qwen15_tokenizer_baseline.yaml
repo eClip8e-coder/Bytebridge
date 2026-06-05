@@ -1,0 +1,8 @@
+model_name: Qwen/Qwen2.5-1.5B
+manifest_path: data/phase2/splits/test.jsonl
+output_dir: experiments/pricai/qwen15/tokenizer_baseline
+batch_size: 8
+max_prompt_length: 64
+max_target_length: 64
+prompt_suffix: "\n"
+examples_per_bucket: 3

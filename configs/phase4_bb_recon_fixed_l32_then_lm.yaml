@@ -1,0 +1,32 @@
+run_name: bb_recon_fixed_l32_then_lm
+seed: 42
+model_name: Qwen/Qwen2.5-0.5B
+train_manifest_path: data/phase2/splits/train.jsonl
+validation_manifest_path: data/phase2/splits/validation.jsonl
+test_manifest_path: data/phase2/splits/test.jsonl
+output_dir: experiments/phase4/bb_recon_fixed_l32_then_lm
+init_adapter_checkpoint: experiments/phase4/recon_fixed_l32/adapter.pt
+boundary_mode: fixed
+
+train_buckets:
+  - clean_english
+  - typo_noise_light
+  - typo_noise_medium
+  - typo_noise_heavy
+  - unicode_stress
+  - code
+  - tokenizer_stress
+
+max_prompt_bytes: 128
+max_spans: 32
+max_target_length: 64
+fixed_patch_size: 4
+heuristic_max_span_bytes: 8
+prompt_suffix: "\n"
+batch_size: 8
+eval_batch_size: 16
+steps: 1200
+learning_rate: 0.0005
+weight_decay: 0.01
+log_every: 100
+eval_every: 600

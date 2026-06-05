@@ -1,0 +1,70 @@
+{
+  "geometry_summary": [
+    {
+      "run": "qwen05_kv_p32_all",
+      "metric": "key_rms_ratio",
+      "mean": 0.6942026135936704,
+      "min": 0.02773180976510048,
+      "max": 1.572291374206543,
+      "n": 1008
+    },
+    {
+      "run": "qwen05_kv_p32_all",
+      "metric": "value_rms_ratio",
+      "mean": 3.119187586541687,
+      "min": 0.7501344680786133,
+      "max": 35.11064147949219,
+      "n": 1008
+    },
+    {
+      "run": "qwen05_kv_p32_all",
+      "metric": "key_mean_cosine",
+      "mean": 0.021286705615830938,
+      "min": -0.24123622477054596,
+      "max": 0.34203484654426575,
+      "n": 1008
+    },
+    {
+      "run": "qwen05_kv_p32_all",
+      "metric": "value_mean_cosine",
+      "mean": -0.03153350448477766,
+      "min": -0.38955992460250854,
+      "max": 0.4214232563972473,
+      "n": 1008
+    },
+    {
+      "run": "tinyllama_kv_p32_all",
+      "metric": "key_rms_ratio",
+      "mean": 1.6100454107249453,
+      "min": 0.9696453809738159,
+      "max": 5.88285493850708,
+      "n": 924
+    },
+    {
+      "run": "tinyllama_kv_p32_all",
+      "metric": "value_rms_ratio",
+      "mean": 19.260449267052984,
+      "min": 2.7953734397888184,
+      "max": 200.89593505859375,
+      "n": 924
+    },
+    {
+      "run": "tinyllama_kv_p32_all",
+      "metric": "key_mean_cosine",
+      "mean": 0.0710100312327948,
+      "min": -0.2295585572719574,
+      "max": 0.34093257784843445,
+      "n": 924
+    },
+    {
+      "run": "tinyllama_kv_p32_all",
+      "metric": "value_mean_cosine",
+      "mean": 0.038627732471787246,
+      "min": -0.3297267258167267,
+      "max": 0.3736909329891205,
+      "n": 924
+    }
+  ],
+  "num_geometry_rows": 1932,
+  "num_case_rows": 16
+}

@@ -1,0 +1,29 @@
+seed: 20260522
+model_name: Qwen/Qwen2.5-0.5B
+output_dir: data/phase2/splits
+summary_path: experiments/phase2/data_summary.json
+max_token_length: 64
+
+train_clean_count: 2400
+val_clean_count: 300
+test_clean_count: 500
+
+include_train_noise: true
+train_noise_base_count: 800
+val_noise_base_count: 120
+test_noise_base_count: 200
+
+train_unicode_count: 120
+val_unicode_count: 80
+test_unicode_count: 120
+
+train_code_count: 120
+val_code_count: 80
+test_code_count: 120
+
+train_stress_count: 120
+val_stress_count: 80
+test_stress_count: 120
+
+val_multilingual_per_group: 40
+test_multilingual_per_group: 80

@@ -1,0 +1,116 @@
+[
+  {
+    "run": "bb_noise_l32_seed1_2k",
+    "path": "experiments/phase2/bb_noise_l32_seed1_2k/summary.json",
+    "clean_loss": 0.676978515855968,
+    "clean_retention": 2.191568091689165,
+    "winning_buckets": [
+      "typo_noise_heavy",
+      "typo_noise_light",
+      "typo_noise_medium"
+    ],
+    "num_winning_buckets": 3,
+    "llm_trainable_params": 0,
+    "checksum_delta": 0.0,
+    "prefix_length": null,
+    "target_layers": null,
+    "num_layers_injected": null,
+    "test_tokens_per_sec": 24878.857957816566,
+    "gpu_memory_allocated_peak_mib": 3467.634765625,
+    "gpu_memory_reserved_peak_mib": 7868.0
+  },
+  {
+    "run": "bb_recon_fixed_l32_then_lm",
+    "path": "experiments/phase4/bb_recon_fixed_l32_then_lm/summary.json",
+    "clean_loss": 0.566929072830826,
+    "clean_retention": 1.83530738002224,
+    "winning_buckets": [
+      "typo_noise_heavy",
+      "typo_noise_light",
+      "typo_noise_medium"
+    ],
+    "num_winning_buckets": 3,
+    "llm_trainable_params": 0,
+    "checksum_delta": 0.0,
+    "prefix_length": null,
+    "target_layers": null,
+    "num_layers_injected": null,
+    "test_tokens_per_sec": 12758.204910932098,
+    "gpu_memory_allocated_peak_mib": 3466.115234375,
+    "gpu_memory_reserved_peak_mib": 7592.0
+  },
+  {
+    "run": "prefix_fixed_p64",
+    "path": "experiments/phase5/prefix_fixed_p64/summary.json",
+    "clean_loss": 0.5440767985563725,
+    "clean_retention": 1.761328200551385,
+    "winning_buckets": [
+      "typo_noise_heavy",
+      "typo_noise_light",
+      "typo_noise_medium"
+    ],
+    "num_winning_buckets": 3,
+    "llm_trainable_params": 0,
+    "checksum_delta": 0.0,
+    "prefix_length": 64,
+    "target_layers": null,
+    "num_layers_injected": null,
+    "test_tokens_per_sec": 17895.669528632716,
+    "gpu_memory_allocated_peak_mib": 4447.8037109375,
+    "gpu_memory_reserved_peak_mib": 10538.0
+  },
+  {
+    "run": "kv_prefix_p16_l4",
+    "path": "experiments/phase6/kv_prefix_p16_l4/summary.json",
+    "clean_loss": 5.508351154327393,
+    "clean_retention": 17.832067554432527,
+    "winning_buckets": [],
+    "num_winning_buckets": 0,
+    "llm_trainable_params": 0,
+    "checksum_delta": 0.0,
+    "prefix_length": 16,
+    "target_layers": "first_n",
+    "num_layers_injected": 4,
+    "test_tokens_per_sec": 31192.872358023964,
+    "gpu_memory_allocated_peak_mib": 2498.28076171875,
+    "gpu_memory_reserved_peak_mib": 4094.0
+  },
+  {
+    "run": "kv_prefix_p32_l4",
+    "path": "experiments/phase6/kv_prefix_p32_l4/summary.json",
+    "clean_loss": 1.7407344739437103,
+    "clean_retention": 5.635242537017253,
+    "winning_buckets": [
+      "typo_noise_heavy"
+    ],
+    "num_winning_buckets": 1,
+    "llm_trainable_params": 0,
+    "checksum_delta": 0.0,
+    "prefix_length": 32,
+    "target_layers": "first_n",
+    "num_layers_injected": 4,
+    "test_tokens_per_sec": 33249.725288969064,
+    "gpu_memory_allocated_peak_mib": 2485.9580078125,
+    "gpu_memory_reserved_peak_mib": 3982.0
+  },
+  {
+    "run": "kv_prefix_p32_lall",
+    "path": "experiments/phase6/kv_prefix_p32_lall/summary.json",
+    "clean_loss": 0.49845866935979577,
+    "clean_retention": 1.6136496051333853,
+    "winning_buckets": [
+      "typo_noise_heavy",
+      "typo_noise_light",
+      "typo_noise_medium"
+    ],
+    "num_winning_buckets": 3,
+    "llm_trainable_params": 0,
+    "checksum_delta": 0.0,
+    "prefix_length": 32,
+    "target_layers": "all",
+    "num_layers_injected": 24,
+    "test_tokens_per_sec": 33234.99593629189,
+    "gpu_memory_allocated_peak_mib": 2503.6240234375,
+    "gpu_memory_reserved_peak_mib": 4000.0
+  }
+]

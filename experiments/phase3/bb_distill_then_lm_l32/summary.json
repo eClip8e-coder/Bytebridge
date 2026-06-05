@@ -1,0 +1,142 @@
+{
+  "run_name": "bb_distill_then_lm_l32",
+  "model_name": "Qwen/Qwen2.5-0.5B",
+  "steps": 2000,
+  "train_rows": 5168,
+  "adapter_parameters": 922240,
+  "llm_trainable_params": 0,
+  "llm_checksum_delta_first8_tensors": 0.0,
+  "best_validation_clean_loss": 0.675866341603299,
+  "test_metrics_by_bucket": {
+    "clean_english": {
+      "count": 500,
+      "loss": 0.6863485487848521,
+      "ppl": 1.986448853274207,
+      "mean_token_count": 27.24,
+      "mean_byte_count": 126.104,
+      "degradation_ratio_vs_clean_bucket": 1.0,
+      "paired_loss_delta_vs_clean": null
+    },
+    "code": {
+      "count": 120,
+      "loss": 2.382039777437846,
+      "ppl": 10.826964954238779,
+      "mean_token_count": 24.25,
+      "mean_byte_count": 54.5,
+      "degradation_ratio_vs_clean_bucket": 3.470597820386064,
+      "paired_loss_delta_vs_clean": null
+    },
+    "multilingual_ar": {
+      "count": 80,
+      "loss": 4.346541848778725,
+      "ppl": 77.21099342561314,
+      "mean_token_count": 23.3375,
+      "mean_byte_count": 81.65,
+      "degradation_ratio_vs_clean_bucket": 6.332849186428781,
+      "paired_loss_delta_vs_clean": null
+    },
+    "multilingual_hi": {
+      "count": 80,
+      "loss": 2.897643706202507,
+      "ppl": 18.13137215635283,
+      "mean_token_count": 43.0875,
+      "mean_byte_count": 112.225,
+      "degradation_ratio_vs_clean_bucket": 4.221825355838006,
+      "paired_loss_delta_vs_clean": null
+    },
+    "multilingual_ja": {
+      "count": 80,
+      "loss": 3.7643889605998995,
+      "ppl": 43.137339191282344,
+      "mean_token_count": 21.35,
+      "mean_byte_count": 72.1,
+      "degradation_ratio_vs_clean_bucket": 5.48466077077685,
+      "paired_loss_delta_vs_clean": null
+    },
+    "multilingual_ko": {
+      "count": 80,
+      "loss": 5.3496686398983,
+      "ppl": 210.53852224074217,
+      "mean_token_count": 19.675,
+      "mean_byte_count": 59.0375,
+      "degradation_ratio_vs_clean_bucket": 7.794390545983724,
+      "paired_loss_delta_vs_clean": null
+    },
+    "multilingual_latin": {
+      "count": 80,
+      "loss": 5.919231176376343,
+      "ppl": 372.12550498900237,
+      "mean_token_count": 19.9625,
+      "mean_byte_count": 54.025,
+      "degradation_ratio_vs_clean_bucket": 8.624234999631112,
+      "paired_loss_delta_vs_clean": null
+    },
+    "multilingual_ru": {
+      "count": 80,
+      "loss": 5.082052940130234,
+      "ppl": 161.10445446809354,
+      "mean_token_count": 23.3125,
+      "mean_byte_count": 97.0,
+      "degradation_ratio_vs_clean_bucket": 7.404478306434494,
+      "paired_loss_delta_vs_clean": null
+    },
+    "multilingual_zh": {
+      "count": 80,
+      "loss": 4.429241573810577,
+      "ppl": 83.8677852585744,
+      "mean_token_count": 18.3375,
+      "mean_byte_count": 58.0,
+      "degradation_ratio_vs_clean_bucket": 6.45334150068845,
+      "paired_loss_delta_vs_clean": null
+    },
+    "tokenizer_stress": {
+      "count": 120,
+      "loss": 3.2516397272547084,
+      "ppl": 25.83266373073575,
+      "mean_token_count": 24.2,
+      "mean_byte_count": 42.6,
+      "degradation_ratio_vs_clean_bucket": 4.737592485642439,
+      "paired_loss_delta_vs_clean": null
+    },
+    "typo_noise_heavy": {
+      "count": 200,
+      "loss": 0.9116586031019688,
+      "ppl": 2.4884464574762273,
+      "mean_token_count": 27.3,
+      "mean_byte_count": 132.25,
+      "degradation_ratio_vs_clean_bucket": 1.328273520379722,
+      "paired_loss_delta_vs_clean": 0.22662999494001268
+    },
+    "typo_noise_light": {
+      "count": 200,
+      "loss": 0.7729263468831777,
+      "ppl": 2.1660957356429456,
+      "mean_token_count": 27.3,
+      "mean_byte_count": 128.61,
+      "degradation_ratio_vs_clean_bucket": 1.1261426111435766,
+      "paired_loss_delta_vs_clean": 0.08789773872122168
+    },
+    "typo_noise_medium": {
+      "count": 200,
+      "loss": 0.8204004822298885,
+      "ppl": 2.271409314472823,
+      "mean_token_count": 27.3,
+      "mean_byte_count": 130.12,
+      "degradation_ratio_vs_clean_bucket": 1.195311746025207,
+      "paired_loss_delta_vs_clean": 0.13537187406793236
+    },
+    "unicode_stress": {
+      "count": 128,
+      "loss": 4.0054325349628925,
+      "ppl": 54.89556351522914,
+      "mean_token_count": 23.5,
+      "mean_byte_count": 60.3046875,
+      "degradation_ratio_vs_clean_bucket": 5.835857804397377,
+      "paired_loss_delta_vs_clean": null
+    }
+  },
+  "test_tokens_per_sec": 24805.078824217195,
+  "total_elapsed_sec": 52.64007481500448,
+  "gpu_memory_allocated_peak_mib": 3467.634765625,
+  "gpu_memory_reserved_peak_mib": 7868.0
+}

@@ -1,0 +1,131 @@
+{
+  "manifest": "data/phase2/splits/test.jsonl",
+  "tokenizer_metrics": "experiments/phase2/tokenizer_baseline/sample_metrics.jsonl",
+  "runs": {
+    "phase5_prefix_p64": 2028,
+    "phase6_kv_p32_all": 2028
+  },
+  "num_samples": 2028,
+  "correlations": {
+    "input_byte_len": {
+      "tokenizer_loss": {
+        "pearson": 0.30931835813895137,
+        "spearman": 0.09231245854150215
+      },
+      "phase5_prefix_p64_loss": {
+        "pearson": -0.5147275405819989,
+        "spearman": -0.6201111842934202
+      },
+      "phase5_prefix_p64_gain_vs_tokenizer": {
+        "pearson": 0.3715632036087236,
+        "spearman": 0.590652469823571
+      },
+      "phase5_prefix_p64_delta_vs_tokenizer": {
+        "pearson": -0.5414797379145366,
+        "spearman": -0.6046298891083661
+      },
+      "phase6_kv_p32_all_loss": {
+        "pearson": -0.5203565860056472,
+        "spearman": -0.6629790846990019
+      },
+      "phase6_kv_p32_all_gain_vs_tokenizer": {
+        "pearson": 0.43468045147133233,
+        "spearman": 0.6205705446299521
+      },
+      "phase6_kv_p32_all_delta_vs_tokenizer": {
+        "pearson": -0.5464210103720986,
+        "spearman": -0.6331861613916429
+      }
+    },
+    "input_token_len": {
+      "tokenizer_loss": {
+        "pearson": 0.6692449415304006,
+        "spearman": 0.21437419723614987
+      },
+      "phase5_prefix_p64_loss": {
+        "pearson": -0.3808911171030812,
+        "spearman": -0.3882375423158457
+      },
+      "phase5_prefix_p64_gain_vs_tokenizer": {
+        "pearson": 0.2757433386011938,
+        "spearman": 0.458921033912856
+      },
+      "phase5_prefix_p64_delta_vs_tokenizer": {
+        "pearson": -0.5844127940207242,
+        "spearman": -0.5956313158328095
+      },
+      "phase6_kv_p32_all_loss": {
+        "pearson": -0.42891401001803287,
+        "spearman": -0.4209595658536704
+      },
+      "phase6_kv_p32_all_gain_vs_tokenizer": {
+        "pearson": 0.3494852479947789,
+        "spearman": 0.4768454206703531
+      },
+      "phase6_kv_p32_all_delta_vs_tokenizer": {
+        "pearson": -0.5457453103606923,
+        "spearman": -0.6190319770330391
+      }
+    },
+    "tokens_per_byte": {
+      "tokenizer_loss": {
+        "pearson": 0.22737527606671576,
+        "spearman": 0.3343987855692807
+      },
+      "phase5_prefix_p64_loss": {
+        "pearson": 0.05051281483584935,
+        "spearman": 0.3060818649642839
+      },
+      "phase5_prefix_p64_gain_vs_tokenizer": {
+        "pearson": -0.0376544290090842,
+        "spearman": -0.10534504723544233
+      },
+      "phase5_prefix_p64_delta_vs_tokenizer": {
+        "pearson": -0.054392685526720844,
+        "spearman": 0.002214192576704011
+      },
+      "phase6_kv_p32_all_loss": {
+        "pearson": -0.005017598297009173,
+        "spearman": 0.3279334109482128
+      },
+      "phase6_kv_p32_all_gain_vs_tokenizer": {
+        "pearson": -0.002808787374964639,
+        "spearman": -0.13214079907718998
+      },
+      "phase6_kv_p32_all_delta_vs_tokenizer": {
+        "pearson": -0.056912836317318125,
+        "spearman": 0.02749326632129932
+      }
+    },
+    "bytes_per_token": {
+      "tokenizer_loss": {
+        "pearson": -0.3189703905959713,
+        "spearman": -0.3343987855692807
+      },
+      "phase5_prefix_p64_loss": {
+        "pearson": -0.17320843933514496,
+        "spearman": -0.3060818649642839
+      },
+      "phase5_prefix_p64_gain_vs_tokenizer": {
+        "pearson": 0.12300271209562444,
+        "spearman": 0.10534504723544233
+      },
+      "phase5_prefix_p64_delta_vs_tokenizer": {
+        "pearson": -0.005701593083608978,
+        "spearman": -0.002214192576704011
+      },
+      "phase6_kv_p32_all_loss": {
+        "pearson": -0.12569403824008304,
+        "spearman": -0.3279334109482128
+      },
+      "phase6_kv_p32_all_gain_vs_tokenizer": {
+        "pearson": 0.113263202294767,
+        "spearman": 0.13214079907718998
+      },
+      "phase6_kv_p32_all_delta_vs_tokenizer": {
+        "pearson": -0.04138294639384966,
+        "spearman": -0.02749326632129932
+      }
+    }
+  }
+}

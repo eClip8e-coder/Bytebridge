@@ -1,0 +1,50 @@
+[
+  {
+    "run": "bb_noise_l32_seed1_2k",
+    "path": "experiments/phase2/bb_noise_l32_seed1_2k/summary.json",
+    "clean_loss": 0.676978515855968,
+    "clean_retention": 2.191568091689165,
+    "winning_buckets": [
+      "typo_noise_heavy",
+      "typo_noise_light",
+      "typo_noise_medium"
+    ],
+    "num_winning_buckets": 3,
+    "clean_retention_le_1p5": false,
+    "clean_retention_le_1p2": false,
+    "llm_checksum_delta_first8_tensors": 0.0,
+    "llm_trainable_params": 0
+  },
+  {
+    "run": "bb_distill_then_lm_l32",
+    "path": "experiments/phase3/bb_distill_then_lm_l32/summary.json",
+    "clean_loss": 0.6863485487848521,
+    "clean_retention": 2.221901499181506,
+    "winning_buckets": [
+      "typo_noise_heavy",
+      "typo_noise_light",
+      "typo_noise_medium"
+    ],
+    "num_winning_buckets": 3,
+    "clean_retention_le_1p5": false,
+    "clean_retention_le_1p2": false,
+    "llm_checksum_delta_first8_tensors": 0.0,
+    "llm_trainable_params": 0
+  },
+  {
+    "run": "bb_distill_then_lm_l64",
+    "path": "experiments/phase3/bb_distill_then_lm_l64/summary.json",
+    "clean_loss": 0.7093010391369462,
+    "clean_retention": 2.2962051060202713,
+    "winning_buckets": [
+      "typo_noise_heavy",
+      "typo_noise_light",
+      "typo_noise_medium"
+    ],
+    "num_winning_buckets": 3,
+    "clean_retention_le_1p5": false,
+    "clean_retention_le_1p2": false,
+    "llm_checksum_delta_first8_tensors": 0.0,
+    "llm_trainable_params": 0
+  }
+]
