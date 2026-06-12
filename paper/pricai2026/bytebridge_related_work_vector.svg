@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="692.28pt" height="298.44pt" viewBox="0 0 692.28 298.44" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-06-12T21:10:56.865571</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.9.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 298.44 
+L 692.28 298.44 
+L 692.28 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 24.84 24.48 
+L 210.24 24.48 
+L 210.24 176.76 
+L 24.84 176.76 
+L 24.84 24.48 
+z
+" clip-path="url(#p1a9fe60a72)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 251.64 24.48 
+L 422.64 24.48 
+L 422.64 176.76 
+L 251.64 176.76 
+L 251.64 24.48 
+z
+" clip-path="url(#p1a9fe60a72)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 465.12 24.48 
+L 650.52 24.48 
+L 650.52 176.76 
+L 465.12 176.76 
+L 465.12 24.48 
+z
+" clip-path="url(#p1a9fe60a72)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 88.92 192.6 
+L 582.84 192.6 
+L 582.84 261 
+L 88.92 261 
+L 88.92 192.6 
+z
+" clip-path="url(#p1a9fe60a72)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <!-- $\Rightarrow$ -->
+    <g transform="translate(215.8992 116.746875)">
+     <text>
+      <tspan style="font: 25.92px 'DejaVu Sans'" x="5.041077" y="-0.28125">⇒</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_2">
+    <!-- $\Leftarrow$ -->
+    <g transform="translate(428.2992 116.746875)">
+     <text>
+      <tspan style="font: 25.92px 'DejaVu Sans'" x="5.041077" y="-0.28125">⇐</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_3">
+    <text style="font: 700 18.72px 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: middle" x="117.36" y="54.218362" transform="rotate(-0 117.36 54.218362)">Byte-capable</text>
+   </g>
+   <g id="text_4">
+    <text style="font: 700 18.72px 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: middle" x="117.36" y="76.555912" transform="rotate(-0 117.36 76.555912)">models</text>
+   </g>
+   <g id="text_5">
+    <text style="font: 17.28px 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: middle" x="117.36" y="101.33505" transform="rotate(-0 117.36 101.33505)">CANINE / ByT5</text>
+   </g>
+   <g id="text_6">
+    <text style="font: 17.28px 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: middle" x="117.36" y="122.95125" transform="rotate(-0 117.36 122.95125)">MEGABYTE / BLT</text>
+   </g>
+   <g id="text_7">
+    <text style="font: 17.28px 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: middle" x="117.36" y="144.55125" transform="rotate(-0 117.36 144.55125)">/ MrT5</text>
+   </g>
+   <g id="text_8">
+    <text style="font: italic 15.12px 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: middle" x="117.36" y="166.698169" transform="rotate(-0 117.36 166.698169)">trained for raw units</text>
+   </g>
+   <g id="text_9">
+    <text style="font: 700 19.44px 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: middle" x="336.96" y="63.530944" transform="rotate(-0 336.96 63.530944)">ByteBridge</text>
+   </g>
+   <g id="text_10">
+    <text style="font: 15.12px 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: middle" x="336.96" y="88.938169" transform="rotate(-0 336.96 88.938169)">input-side byte</text>
+   </g>
+   <g id="text_11">
+    <text style="font: 15.12px 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: middle" x="336.96" y="110.912344" transform="rotate(-0 336.96 110.912344)">adapter</text>
+   </g>
+   <g id="text_12">
+    <text style="font: italic 15.12px 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: middle" x="336.96" y="136.098169" transform="rotate(-0 336.96 136.098169)">bytes condition a</text>
+   </g>
+   <g id="text_13">
+    <text style="font: italic 15.12px 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: middle" x="336.96" y="158.418169" transform="rotate(-0 336.96 158.418169)">frozen LM</text>
+   </g>
+   <g id="text_14">
+    <text style="font: 700 18.72px 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: middle" x="558" y="54.235912" transform="rotate(-0 558 54.235912)">Frozen-model</text>
+   </g>
+   <g id="text_15">
+    <text style="font: 700 18.72px 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: middle" x="558" y="76.702162" transform="rotate(-0 558 76.702162)">adaptation</text>
+   </g>
+   <g id="text_16">
+    <text style="font: 16.56px 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: middle" x="558" y="101.538281" transform="rotate(-0 558 101.538281)">prompt / prefix /</text>
+   </g>
+   <g id="text_17">
+    <text style="font: 16.56px 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: middle" x="558" y="123.498281" transform="rotate(-0 558 123.498281)">LoRA</text>
+   </g>
+   <g id="text_18">
+    <text style="font: italic 15.12px 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: middle" x="558" y="147.618169" transform="rotate(-0 558 147.618169)">input usually</text>
+   </g>
+   <g id="text_19">
+    <text style="font: italic 15.12px 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: middle" x="558" y="169.592344" transform="rotate(-0 558 169.592344)">tokenized</text>
+   </g>
+   <g id="text_20">
+    <text style="font: 700 19.44px 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: middle" x="335.88" y="223.730944" transform="rotate(-0 335.88 223.730944)">Tokenizer analysis</text>
+   </g>
+   <g id="text_21">
+    <text style="font: 15.48px 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: middle" x="335.88" y="249.944316" transform="rotate(-0 335.88 249.944316)">motivates stress tests; no byte interface is trained</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p1a9fe60a72">
+   <rect x="1.44" y="1.44" width="689.4" height="295.56"/>
+  </clipPath>
+ </defs>
+</svg>

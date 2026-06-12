@@ -4,9 +4,9 @@ Date: 2026-05-28
 
 ## Files
 
-- Local PDF: `D:\Desktop\dailyusage\bytebridge_pricai2026\main.pdf`
-- Local source zip: `D:\Desktop\dailyusage\bytebridge_pricai2026\pricai2026_source.zip`
-- Remote paper folder: `/home/normal/bytebridge/paper/pricai2026/`
+- PDF: `paper/pricai2026/main.pdf`
+- Source files: `paper/pricai2026/`
+- Submission source archive should be rebuilt from the source files before upload.
 
 ## Format
 
@@ -23,13 +23,15 @@ Date: 2026-05-28
 - Compact Qwen diagnostic-ladder figure added; compiled page count remains 16
 - Table 3 caption now points readers to the Section 8.1 multilingual KV-prefix failure analysis
 - Language clarity pass completed on dense TinyLlama/Qwen diagnosis text; claims and numbers unchanged
+- Added compact main experimental settings table and clarified that 1.5/1.2 clean-retention thresholds are diagnostic guardrails, not tuned decision boundaries
+- Minor layout polish: GPU setting wording made explicit and Figure 1 discussion moved after the bucket-loss narrative
 
 ## Anonymous Review
 
 - PDF author block: `Anonymous Authors`
 - Institute line: `Paper under double-anonymous review`
-- No author name, institution, local path, server name, or OpenReview/TokShop mention in the paper text
-- TokShop non-archival submission is not cited or used as prior work
+- No author name, institution, local path, server name, or workshop-submission mention in the paper text
+- Earlier non-archival workshop material is not cited or used as prior work
 
 ## Core Numeric Claims
 
@@ -72,6 +74,6 @@ Date: 2026-05-28
 
 ## Open Items Before Real Submission
 
-- Add real author names only in EasyChair metadata, not in the anonymous PDF.
-- Recheck PRICAI EasyChair fields when submission opens.
-- Consider asking chairs only if concerned about simultaneous non-archival TokShop review; PRICAI policy excludes workshops without archival proceedings from the conference/journal dual-submission restriction.
+- Add real author names only in the submission-system metadata, not in the anonymous PDF.
+- Recheck PRICAI submission fields before final upload.
+- If concerned about simultaneous non-archival workshop review, ask the chairs before submission.
